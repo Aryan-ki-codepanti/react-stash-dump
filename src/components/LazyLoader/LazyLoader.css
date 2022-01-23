@@ -1,0 +1,54 @@
+/* Font Nunito Sans */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+
+body{
+    background: #FFF8F3;
+}
+
+.loader-wrapper {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.loader-wrapper > * {
+    font-family: "Nunito Sans";
+}
+
+
+.loader-box {
+    width: 80%;
+    max-width: 900px;
+    border-radius: 8px;
+}
+
+.profile-name{
+    font-size: 1.35em;
+    font-weight: 600;
+    color: #A3E4DB;    
+}
+
+.profile-footer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.profile-footer > *,
+.profile-contact > *
+{
+    color: #1C6DD0;
+    font-weight: 500;
+}
+.profile-footer p,
+.profile-contact p
+{
+    font-size: 0.96em;
+    margin-bottom: 0;
+}
+
+
+.loader-box h3{
+    font-weight: 700;
+    font-size: 1.3em;
+}
