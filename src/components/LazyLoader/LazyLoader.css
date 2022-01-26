@@ -26,18 +26,17 @@ body{
 
 .profile-name{
     font-size: 1.35em;
-    font-weight: 600;
-    color: #A3E4DB;    
+    font-weight: 600;  
 }
 
 .profile-footer{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 2em;
 }
 .profile-footer > *,
 .profile-contact > *
 {
-    color: #1C6DD0;
     font-weight: 500;
 }
 .profile-footer p,

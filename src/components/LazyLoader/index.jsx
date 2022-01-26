@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./LazyLoader.css";
 import moment from "moment";
+import callSVG from "../../img/call.svg";
+import emailSVG from "../../img/email.svg";
+import contactsSVG from "../../img/contacts.svg";
+import homeSVG from "../../img/home.svg";
 
 const ProfileImage = ({ image }) => (
-    <div className="d-flex justify-content-center">
+    <div>
         <img
             className="rounded-circle border border-1 border-dark"
             src={image}
@@ -13,15 +17,18 @@ const ProfileImage = ({ image }) => (
 );
 
 const Name = ({ first, last, title }) => (
-    <h2 className="text-center my-3 profile-name">
+    <h2 className="my-3 profile-name">
         {title} {first} {last}
     </h2>
 );
 
 const Address = ({ address = "B-4 172 Sector 7 Rohini" }) => (
-    <div className="my-3">
+    <div className="grid-child">
         <h3>Home</h3>
-        <p>{address}</p>
+        <div class="d-flex align-items-center gap-2">
+            <img src={homeSVG} alt="" />
+            <p>{address}</p>
+        </div>
     </div>
 );
 
@@ -33,7 +40,7 @@ const Country = ({ country = "India" }) => (
 );
 
 const DOB = ({ age, date }) => (
-    <div className="my-3">
+    <div>
         <h3>Other Details</h3>
         <p>{age} years old</p>
         <p>Born on {moment(date).format("Do MMMM , YYYY")}</p>
@@ -43,9 +50,18 @@ const DOB = ({ age, date }) => (
 const Contact = ({ phone, username, email }) => (
     <div>
         <h3>Contact</h3>
-        <p>{phone}</p>
-        <p>{email}</p>
-        <p>{username}</p>
+        <div className="d-flex gap-2 align-items-center my-2">
+            <img src={callSVG} alt="" />
+            <p>{phone}</p>
+        </div>
+        <div className="d-flex gap-2 align-items-center my-2">
+            <img src={emailSVG} alt="" />
+            <p>{email}</p>
+        </div>
+        <div className="d-flex gap-2 align-items-center my-2">
+            <img src={contactsSVG} alt="" />
+            <p>{username}</p>
+        </div>
     </div>
 );
 
@@ -66,24 +82,20 @@ const LazyLoader = () => {
             {user && (
                 <div className="loader-wrapper">
                     <div className="loader-box rounded-5 p-3">
-                        <div className="profile-header">
+                        <div className="profile-header d-flex align-items-center gap-4">
                             <ProfileImage image={user.picture.medium} />
                             <Name {...user.name} />
                         </div>
                         <div className="profile-footer my-4">
-                            <div className="left">
-                                <Address />
-                                <Country />
-                            </div>
-                            <div className="right">
-                                <DOB {...user.dob} />
-                                <div className="profile-contact">
-                                    <Contact
-                                        phone={user.phone}
-                                        email={user.email}
-                                        username={user.login.username}
-                                    />
-                                </div>
+                            <Address />
+                            <Country />
+                            <DOB {...user.dob} />
+                            <div className="profile-contact grid-child">
+                                <Contact
+                                    phone={user.phone}
+                                    email={user.email}
+                                    username={user.login.username}
+                                />
                             </div>
                         </div>
                     </div>
