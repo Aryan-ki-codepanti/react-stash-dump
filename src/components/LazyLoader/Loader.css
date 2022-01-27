@@ -1,0 +1,54 @@
+:root {
+    --Primary-load: #eaeaea;
+    --Secondary-load: #cfcfcf;
+}
+
+.lazy-box {
+    width: 200px;
+    height: 10px;
+    background-color: var(--Primary-load);
+    /* position: absolute; */
+    margin-block: 0.9em;
+    border-radius: 3em;
+
+    animation: myLoader 2s infinite ease-in-out alternate;
+}
+
+.load-footer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.load-pic {
+    width: 80px;
+    aspect-ratio: 1;
+    background: var(--Primary-load);
+    border-radius: 50%;
+    animation: myLoaderPic 2s infinite ease-in-out alternate;
+}
+.load-name {
+    width: 200px;
+    height: 25px;
+    border-radius: 2em;
+    background: var(--Primary-load);
+    animation: myLoader 2s infinite ease-in-out alternate;
+}
+
+@keyframes myLoader {
+    from {
+        background-color: var(--Primary-load);
+        width: 20px;
+    }
+    to {
+        background-color: var(--Secondary-load);
+        width: 300px;
+    }
+}
+@keyframes myLoaderPic {
+    from {
+        background-color: var(--Primary-load);
+    }
+    to {
+        background-color: var(--Secondary-load);
+    }
+}

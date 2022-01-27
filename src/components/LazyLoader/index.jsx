@@ -5,6 +5,7 @@ import callSVG from "../../img/call.svg";
 import emailSVG from "../../img/email.svg";
 import contactsSVG from "../../img/contacts.svg";
 import homeSVG from "../../img/home.svg";
+import { Loader } from "./Loader";
 
 const ProfileImage = ({ image }) => (
     <div>
@@ -79,28 +80,32 @@ const LazyLoader = () => {
 
     return (
         <>
-            {user && (
-                <div className="loader-wrapper">
-                    <div className="loader-box rounded-5 p-3">
-                        <div className="profile-header d-flex align-items-center gap-4">
-                            <ProfileImage image={user.picture.medium} />
-                            <Name {...user.name} />
-                        </div>
-                        <div className="profile-footer my-4">
-                            <Address />
-                            <Country />
-                            <DOB {...user.dob} />
-                            <div className="profile-contact grid-child">
-                                <Contact
-                                    phone={user.phone}
-                                    email={user.email}
-                                    username={user.login.username}
-                                />
+            <div className="loader-wrapper">
+                <div className="loader-box rounded-5 p-3">
+                    {user ? (
+                        <>
+                            <div className="profile-header d-flex align-items-center gap-4">
+                                <ProfileImage image={user.picture.medium} />
+                                <Name {...user.name} />
                             </div>
-                        </div>
-                    </div>
+                            <div className="profile-footer my-4">
+                                <Address />
+                                <Country />
+                                <DOB {...user.dob} />
+                                <div className="profile-contact grid-child">
+                                    <Contact
+                                        phone={user.phone}
+                                        email={user.email}
+                                        username={user.login.username}
+                                    />
+                                </div>
+                            </div>
+                        </>
+                    ) : (
+                        <Loader />
+                    )}
                 </div>
-            )}
+            </div>
         </>
     );
 };
