@@ -52,3 +52,10 @@
         background-color: var(--Secondary-load);
     }
 }
+
+/* for mobile and tab screens  */
+@media screen and (max-width: 665px) {
+    .load-footer{
+        grid-template-columns: 1fr;
+    }
+}

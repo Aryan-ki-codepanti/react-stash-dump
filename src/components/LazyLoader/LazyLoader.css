@@ -51,3 +51,9 @@ body{
     font-weight: 700;
     font-size: 1.3em;
 }
+
+@media screen and (max-width: 665px) {
+    .profile-footer{
+        grid-template-columns: 1fr;
+    }
+}
